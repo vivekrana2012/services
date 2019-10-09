@@ -1,0 +1,30 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: services
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+
+mongodb:
+  article:
+    authentication-database: admin
+    database: articleDatabase
+    uri: mongodb+srv://sources:sources@clusterhalfspace-nzkkf.gcp.mongodb.net/test?retryWrites=true
+  youtube:
+    authentication-database: admin
+    uri: mongodb+srv://youtube:youtube@clusterhalfspace-nzkkf.gcp.mongodb.net/test?retryWrites=true
+    database: youtubeVideoDatabase
+
+logging:
+  level:
+    org:
+      springframework:
+        web:  DEBUG
+  path: /opt/tomcat/logs/
